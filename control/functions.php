@@ -68,7 +68,7 @@
                 $liString .= '<li>';
                 getResizedImage($author['image'],$cdn);
                 if($author['url']){
-                    $liString .='<a href="'.$author['url'].'" target="_self">';
+                    $liString .='<a href="'.$author['url'].'" target="_top">';
                 }
                 $liString .= '<div class="name">
                                 <h3>'.$author['name'].'</h3>
