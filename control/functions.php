@@ -94,7 +94,7 @@
         return '<p>'.$jsonUrl.' archivo no existe</p>';
     }
     
-    function makeAjsonFile($site_id,$siteUrl=''){
+    function makeAjsonFile($site_id,$siteUrl='',$cdn=''){
         $fileUrl = ROOT_DIR.'/data/'.$site_id.'.json';
         if(!file_exists($fileUrl) || (date('U') - filectime($fileUrl)>86400) || $forced===true){
 
