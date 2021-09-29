@@ -59,9 +59,9 @@
         
     }
 
-    function makeHtmlList($site_id,$cdn='',$route=''){
+    function makeHtmlList($site_id,$cdn='',$route='',$forced=false){
         $jsonUrl=ROOT_DIR.'/data/'.$site_id.'.json';
-        $jsonList=json_decode(getAuthorsCountry($site_id,$route,$cdn), true);
+        $jsonList=json_decode(getAuthorsCountry($site_id,$route,$cdn,$forced), true);
         $liString='';
         if(file_exists($jsonUrl) && !$jsonList['error']){
             foreach($jsonList as $author){
@@ -97,10 +97,11 @@
     function makeAjsonFile($site_id,$siteUrl=''){
         $fileUrl = ROOT_DIR.'/data/'.$site_id.'.json';
         if(!file_exists($fileUrl) || (date('U') - filectime($fileUrl)>86400) || $forced===true){
+
             $fp = fopen($fileUrl,'w');
             fwrite($fp, json_encode(makeAuthorListByCountry($site_id,$siteUrl,$cdn)));
             fclose($fp);
-            //echo 'archivo NO EXISTE para '.$site_id;
+            
         }//else{
             //echo 'archivo existe para '.$site_id;
         //}

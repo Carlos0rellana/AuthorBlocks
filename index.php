@@ -12,7 +12,9 @@
     <?php
         define('ROOT_DIR', realpath(__DIR__));
         require ROOT_DIR.'/control/functions.php';
-        echo makeHtmlList($_GET["country"],$_GET["cdn"],$_GET["site"]);
+        $forced=false;
+        if(isset($_GET["site"])){$forced=$_GET["forced"];}
+        echo makeHtmlList($_GET["country"],$_GET["cdn"],$_GET["site"],$forced);
     ?>
     <script src="js/flickity.pkgd.min.js"></script>
     <script src="js/index.js"></script>
