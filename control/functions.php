@@ -100,7 +100,7 @@
             $fp = fopen($fileUrl,'w');
             fwrite($fp, json_encode(makeAuthorListByCountry($site_id,$siteUrl,$cdn)));
             fclose($fp);
-            echo 'archivo NO EXISTE para '.$site_id;
+            //echo 'archivo NO EXISTE para '.$site_id;
         }//else{
             //echo 'archivo existe para '.$site_id;
         //}
