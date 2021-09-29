@@ -45,7 +45,7 @@
                         $author['image']=getResizedImage($value->image,$cdn);
                     }
                     if($value->bio_page){
-                        $author['url']=$siteUrl.$value->bio_page;
+                        $author['url']=$value->bio_page;
                     }
                     array_push($filterAuthorList,$author);
                 }
@@ -68,7 +68,7 @@
                 $liString .= '<li>';
                 getResizedImage($author['image'],$cdn);
                 if($author['url']){
-                    $liString .='<a href="'.$author['url'].'" target="_top">';
+                    $liString .='<a href="'.$route.$author['url'].'" target="_top">';
                 }
                 $liString .= '<div class="name">
                                 <h3>'.$author['name'].'</h3>
