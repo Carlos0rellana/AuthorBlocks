@@ -27,7 +27,6 @@
             return $rootSite.$imgObject->additional_properties->thumbnailResizeUrl;
         }
         return $imgRoute;
-
     }
 
     function makeAuthorListByCountry($site_id='mx',$siteUrl='',$cdn='',$type='author'){
@@ -68,7 +67,9 @@
                 $liString .= '<li>';
                 getResizedImage($author['image'],$cdn);
                 if($author['url']){
-                    $liString .='<a href="'.$route.$author['url'].'" target="_top">';
+                    $liString .='<a href="'.$route.$author['url'].'" target="_top" class="box-item">';
+                }else{
+                    $liString .='<div class="box-item no-pointer">';
                 }
                 $liString .= '<div class="name">
                                 <h3>'.$author['name'].'</h3>
@@ -83,6 +84,8 @@
                             </div>';
                 if($author['url']){
                     $liString .='</a>';
+                }else{
+                    $liString .='</div>';
                 }
                 $liString .='</li>';
             }
